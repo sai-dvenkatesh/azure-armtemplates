@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0",
+    "parameters": {
+        "funtionappName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "functionappname": "[parameters('funtionappName')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('funtionappName')]",
+            "apiVersion": "2016-08-01",
+            "location": "[parameters('rgLocation')]",
+            "kind": "functionapp",
+            "properties": {}
+        }
+    ]
+}

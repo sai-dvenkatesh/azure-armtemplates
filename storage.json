@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0",
+    "parameters": {
+        "storageaccountName": {
+            "type": "string"
+        },
+        "storageaccountType": {
+            "type": "string"
+        },
+        "kind": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "location-site": "centralus"
+    },
+    "resources": [
+        {
+            "name": "[parameters('storageaccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2016-01-01",
+            "location": "[variables('location-site')]",
+            "tags": {
+                "displayName": "sai-devops"
+            },
+            "kind": "[parameters('kind')]",
+            "sku": {
+                "name": "[parameters('storageaccountType')]"
+            }
+        }
+    ]
+}
